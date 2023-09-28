@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\MusteriController;
 use App\Http\Controllers\RaporController;
@@ -36,15 +37,14 @@ Route::prefix('nedmin')->group(function (){
         Route::post('/rapor-olustur', [RaporController::class, 'exportUrun'])->name('urun-rapor-olustur');
     });
 
-
-    Route::prefix('musteri')->group(function () {
-        Route::get('/', [MusteriController::class, 'index'])->name('musteri.Index');
-        Route::get('ekle', [MusteriController::class, 'create'])->name('musteri.Ekle');
-        Route::post('ekle', [MusteriController::class, 'store'])->name('musteri.Store');
-        Route::get('edit/{id}', [MusteriController::class, 'edit'])->name('musteri.Edit');
-        Route::put('update/{id}', [MusteriController::class, 'update'])->name('musteri.Update');
-        Route::get('sil/{id}', [MusteriController::class, 'destroy'])->name('musteri.Destroy');
-        Route::post('/rapor-olustur', [RaporController::class, 'exportMusteri'])->name('musteri-rapor-olustur');
+    Route::prefix('customer')->group(function () {
+        Route::get('/', [CustomerController::class, 'index'])->name('customer.index');
+        Route::get('add', [CustomerController::class, 'create'])->name('customer.create');
+        Route::post('add', [CustomerController::class, 'store'])->name('customer.store');
+        Route::get('edit/{id}', [CustomerController::class, 'edit'])->name('customer.edit');
+        Route::post('update/{id}', [CustomerController::class, 'update'])->name('customer.update');
+        Route::get('destroy/{id}', [CustomerController::class, 'destroy'])->name('customer.destroy');
+        Route::post('export-customer', [CustomerController::class, 'exportCustomer'])->name('export-customer');
     });
 
 

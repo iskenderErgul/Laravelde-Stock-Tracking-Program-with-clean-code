@@ -15,9 +15,9 @@ class CustomerCreateRequest extends FormRequest
     {
         return [
 //            'customer_photo' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'customer_nameSurname' => 'required|string|max:255',
-            'customer_email' => 'required|email|unique:customers',
-            'customer_phone' => 'required|string|max:15',
+            'customer_nameSurname' => 'required|string',
+            'customer_email' => 'required|email',
+            'customer_phone' => 'required|string',
             'customer_balance' => 'required|integer|min:0',
         ];
     }

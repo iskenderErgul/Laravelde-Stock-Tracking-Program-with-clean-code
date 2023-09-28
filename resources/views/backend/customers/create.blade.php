@@ -4,42 +4,52 @@
 
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Urun Ekle</h3>
+                <h3 class="box-title">Add Customer</h3>
             </div>
             <div class="box-body">
-                <form action="{{route('musteri.Update',['id' => $musteri->id])}}" method="POST" enctype="multipart/form-data">
+                <form action="{{route('customer.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">
-                        <label>Müşteri Adı</label>
+                        <label>Customer NameSurname</label>
                         <div class="row">
                             <div class="col-xs-12">
-                                <input class="form-control"  name="ad" type="text" value="{{$musteri->ad}}">
+                                <input class="form-control"  name="customer_nameSurname" type="text" value="">
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Müşteri Soyad</label>
+                        <label>Customer Email</label>
                         <div class="row">
                             <div class="col-xs-12">
-                                <input class="form-control"  name="soyad" type="text" value="{{$musteri->soyad}}">
+                                <input class="form-control"  name="customer_email" type="email" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Phone</label>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="form-control"  name="customer_phone" type="number" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Customer Balance</label>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <input class="form-control"  name="customer_balance" type="number" value="">
                             </div>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label>Müşteri Email</label>
-                        <div class="row">
-                            <div class="col-xs-12">
-                                <input class="form-control"  name="email" type="email" value="{{$musteri->email}}">
-                            </div>
-                        </div>
-                    </div>
+
+
 
 
 
                     <div align="right" class="box-footer">
-                        <button type="submit" class="btn btn-success">Bilgileri Güncelle</button>
+                        <button type="submit" class="btn btn-success">Ekle</button>
                     </div>
 
                 </form>

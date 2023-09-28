@@ -178,7 +178,7 @@ desired effect
                 <li class="active"><a href="{{route('nedmin.Index')}}"><i class="fa fa-home"></i> <span>Dashboard</span></a></li>
                 <li class="active"><a href="{{route('urun.Index')}}"><i class="fa fa-shopping-bag"></i> <span>Ürünler</span></a></li>
                 <li class="active"><a href="{{route('siparis.Index')}}"><i class="fa fa-link"></i> <span>Siparişler</span></a></li>
-                <li class="active"><a href="{{route('musteri.Index')}}"><i class="fa fa-user-circle"></i> <span>Müşteriler</span></a></li>
+                <li class="active"><a href="{{route('customer.index')}}"><i class="fa fa-user-circle"></i> <span>Customers</span></a></li>
                 <li class="active"><a href="{{route('raporla.Index')}}"><i class="fa fa-book"></i> <span>Raporlama</span></a></li>
 
 
