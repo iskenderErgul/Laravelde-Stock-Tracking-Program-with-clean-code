@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('ad');
             $table->string('soyad');
             $table->string('email')->unique();
-            $table->string('sifre');
         });
     }
 
