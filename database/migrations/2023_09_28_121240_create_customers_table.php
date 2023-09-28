@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('customer_photo')->nullable();
+            $table->string('customer_nameSurname');
+            $table->string('customer_email');
+            $table->string('customer_phone');
+            $table->integer('customer_balance');
+
         });
     }
 
