@@ -3,7 +3,7 @@
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DefaultController;
 use App\Http\Controllers\MusteriController;
-use App\Http\Controllers\RaporController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\SiparisController;
 
 use App\Http\Controllers\UrunController;
@@ -24,17 +24,17 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('nedmin')->group(function (){
 
-    Route::get('',[DefaultController::class,'index'])->name('nedmin.Index');
-    Route::get('raporlama',[RaporController::class,'index'])->name('raporla.Index');
+    Route::get('',[DefaultController::class,'index'])->name('nedmin.index');
+    Route::get('exports',[ExportController::class,'index'])->name('export.index');
 
     Route::prefix('urun')->group(function () {
-        Route::get('/', [UrunController::class, 'index'])->name('urun.Index');
+        Route::get('/', [UrunController::class, 'index'])->name('products.index');
         Route::get('ekle', [UrunController::class, 'create'])->name('urun.Ekle');
         Route::post('ekle', [UrunController::class, 'store'])->name('urun.Store');
         Route::get('edit/{id}', [UrunController::class, 'edit'])->name('urun.Edit');
         Route::post('update/{id}', [UrunController::class, 'update'])->name('urun.Update');
         Route::get('sil/{id}', [UrunController::class, 'destroy'])->name('urun.Destroy');
-        Route::post('/rapor-olustur', [RaporController::class, 'exportUrun'])->name('urun-rapor-olustur');
+
     });
 
     Route::prefix('customer')->group(function () {
@@ -55,7 +55,7 @@ Route::prefix('nedmin')->group(function (){
     Route::get('siparis-edit/{id}',[SiparisController::class,'edit'])->name('siparis.Edit');
     Route::put('siparis-update/{id}',[SiparisController::class,'update'])->name('siparis.Update');
     Route::get('siparis-sil/{id}', [SiparisController::class, 'destroy'])->name('siparis.Destroy');
-    Route::post('siparis-rapor-olustur', [RaporController::class, 'exportSiparis'])->name('siparis-rapor-olustur');
+
 
 
 

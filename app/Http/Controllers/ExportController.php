@@ -9,7 +9,7 @@ use App\Models\Siparis;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
-class RaporController extends Controller
+class ExportController extends Controller
 {
     public function index()
     {

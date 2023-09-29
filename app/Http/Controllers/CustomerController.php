@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\CustomersExport;
 use App\Http\Requests\CustomerCreateRequest;
 use App\Http\Requests\CustomerUpdateRequest;
 use App\Models\Customer;
@@ -12,6 +13,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CustomerController extends Controller
 {
@@ -69,6 +71,12 @@ class CustomerController extends Controller
         {
             return $exception->getMessage();
         }
+    }
+
+    public function exportCustomer(): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    {
+        $export = new CustomersExport();
+        return Excel::download($export, 'customers.xlsx');
     }
 
 
